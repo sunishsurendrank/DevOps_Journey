@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: pythonnodeport
+  name: pythonnodeport
+spec:
+  ports:
+  - name: 30002-5000
+    nodePort: 30002
+    port: 80
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: pythonwebservice
+  type: NodePort
+

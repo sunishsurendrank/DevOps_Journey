@@ -1,0 +1,7 @@
+frontendReplicas: 4
+pythonApiReplicas: 4
+goApiReplicas: 4
+pythonwebserviceTag: pythonwebserviceTagValue
+gowebserviceTag: gowebserviceTagValue
+frontendTag: frontendTagValue
+

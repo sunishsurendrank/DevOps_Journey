@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Split Landing Page</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="split left">
+            <h1>GoLangTest</h1>
+            <a href="#" class="Sequentialbutton"  onclick="runCodeGoSequential()">Sequential</a>
+            <a href="#" class="Concurrentbutton"  onclick="runCodeGoParallel()">Concurrent</a>
+            <t1 id="TimeToExecuteGo"></t1>
+            
+        </div>
+        <div class="split right">
+            <h1>Python</h1>
+            <a href="#" class="Sequentialbutton"  onclick="runCodePythonSequential()">Sequential</a>
+            <a href="#" class="Concurrentbutton"  onclick="runCodePythonConcurrent()">Concurrent</a>
+            <t2 id="TimeToExecutePython"></t2>
+        </div>
+    </div>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: godeployment
+  name: godeployment
+spec:
+  replicas: {{.Values.goApiReplicas}}
+  selector:
+    matchLabels:
+      app: gowebservice
+  template:
+    metadata:
+      labels:
+        app: gowebservice
+    spec:
+      containers:
+      - image: sunishsurendrank/go_web_service:{{.Values.gowebserviceTag}}
+        name: gowebservice
+        ports:
+        - containerPort: 9090
+

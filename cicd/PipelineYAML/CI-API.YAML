@@ -1,0 +1,21 @@
+pipeline:
+  agent:
+    any:
+  enviroment:
+    registry: "sunishsurendrank/demo"
+    registryCredential  : 'dockerhubCredential'
+    dockerImage : ''
+  stages:
+   - stage: "Checkout"
+     steps:
+       script: 
+         - git 'https://github.com/sunishsurendrank/API.git'
+   - stage: "Build Multi stage Docker Image"
+     steps:
+       script: | 
+         dockerImage = docker.build registry + ":$BUILD_NUMBER"
+   - stage: "Push to Docker Resgistry"
+     steps:
+       script: | 
+        docker.withRegistry( '', registryCredential ) {dockerImage.push()}
+   

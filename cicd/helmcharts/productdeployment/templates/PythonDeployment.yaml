@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: pythondeployment
+  name: pythondeployment
+spec:
+  replicas: {{.Values.pythonApiReplicas}}
+  selector:
+    matchLabels:
+      app: pythonwebservice
+  template:
+    metadata:
+      labels:
+        app: pythonwebservice
+    spec:
+      containers:
+      - image: sunishsurendrank/python_web_service:{{.Values.pythonwebserviceTag}}
+        name: pythonwebservice
+        ports:
+        - containerPort: 5000

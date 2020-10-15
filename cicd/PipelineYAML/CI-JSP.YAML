@@ -1,0 +1,16 @@
+pipeline:
+    agent:
+      any:
+    stages:
+     - stage: "Checkout"
+       steps:
+         script: 
+           - git 'https://github.com/sunishsurendrank/API.git'
+     - stage: "Build Multi stage Docker Image"
+       steps:
+         script: 
+           - sh "docker build -t sunishsurendrank/webserver:v$BUILD_NUMBER ."
+     - stage: "Push to Docker Resgistry"
+       steps:
+         - sh "docker login -u sunishsurendrank -p Login@365;docker push  sunishsurendrank/webserver:v$BUILD_NUMBER"
+     
